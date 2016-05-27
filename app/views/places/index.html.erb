@@ -19,21 +19,12 @@
             <small><%= place.comments.last.user.email %></small>
           </blockquote>
         </div>
-      <% end %>
+      <% end %>  
 
-      <% if place.photos.present? %>
-          <h3 class='text-center'> Photos of <%= place.name %> </h3>
-          <div class='container'>
-            <div class='row'>
-            <% place.photos.each do |photo| %>
-              <div class='col-md-4'>
-                <%= image_tag photo.picture, class: 'img-responsive center-block'%>
-                <p class='text-center'><%= photo.caption %></p>
-              </div>
-            <% end %>
-            </div> 
-          </div>
-      <% end %>     
+      <% if place.photos.present? %>   
+        <%= image_tag place.photos.last.picture, class: 'img-responsive center-block'%>
+      <% end %>
+      
     </div>
   <% end %>
 
@@ -41,3 +32,4 @@
     <%= paginate @places %>
   </div>
 </div>
+
